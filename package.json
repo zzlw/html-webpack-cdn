@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-cdn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "无需配置 webpack externals 自动向 html-webpack-plugins 模板注入 unpkg cdn",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "bugs": "https://github.com/zzlw/html-webpack-cdn",
   "homepage": "https://github.com/zzlw/html-webpack-cdn",
   "repository": "https://github.com/zzlw/html-webpack-cdn.git",
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org/"
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.2"
   }
 }
