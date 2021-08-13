@@ -42,7 +42,7 @@ const defaultConfig = {
   cdnType: UNPKG,
 };
 
-class WebpackExternalsCdnPlugin {
+class HtmlWebpackCdnPlugin {
   constructor({ modules = [], ...config } = {}) {
     this.modules = modules;
     this.config = { ...defaultConfig, ...config };
@@ -63,7 +63,7 @@ class WebpackExternalsCdnPlugin {
         if (isEmpty({ name, _var, path })) {
           console.error(
             "\x1B[31m%s\x1B[0m",
-            `未匹配 CDN ${name}, 请检查参数 WebpackExternalsCdnPlugin modules`
+            `未匹配 CDN ${name}, 请检查参数 HtmlWebpackCdnPlugin modules`
           );
           return;
         }
@@ -72,7 +72,7 @@ class WebpackExternalsCdnPlugin {
     }
 
     compiler.hooks.compilation.tap(
-      "WebpackExternalsCdnPlugin",
+      "HtmlWebpackCdnPlugin",
       (compilation, compilationParams) => {
         Object.keys(webpackExternals).forEach(async (packageName) => {
           // 已装载过 cdn
@@ -95,10 +95,10 @@ class WebpackExternalsCdnPlugin {
           });
         });
         HtmlWebpackPlugin.getHooks(compilation).afterTemplateExecution.tapAsync(
-          "WebpackExternalsCdnPlugin",
+          "HtmlWebpackCdnPlugin",
           (data, cb) => {
             cdnSource.forEach((item) => {
-              data.headTags.push({
+              data.bodyTags.unshift({
                 tagName: "script",
                 voidTag: false,
                 attributes: { defer: false, src: item.path },
@@ -111,4 +111,4 @@ class WebpackExternalsCdnPlugin {
     );
   }
 }
-module.exports = WebpackExternalsCdnPlugin;
+module.exports = HtmlWebpackCdnPlugin;
