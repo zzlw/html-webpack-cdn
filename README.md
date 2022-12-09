@@ -6,11 +6,6 @@
 [![GitHub license](https://img.shields.io/github/license/zzlw/html-webpack-cdn.svg)](https://github.com/zzlw/html-webpack-cdn/blob/main/LICENSE)
 
 <div align="center">
-  <img width="200" height="200" src="https://worldvectorlogo.com/logos/html5.svg">
-  <a href="https://github.com/webpack/webpack">
-    <img width="200" height="200"
-      src="https://webpack.js.org/assets/icon-square-big.svg">
-  </a>
   <div>
     <img width="100" height="100" title="Webpack Plugin" src="http://michael-ciniawsky.github.io/postcss-load-plugins/logo.svg">
   </div>
